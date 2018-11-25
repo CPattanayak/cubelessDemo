@@ -1,0 +1,53 @@
+# Welcome to Serverless!
+#
+# For full config options, check the kubeless plugin docs:
+#    https://github.com/serverless/serverless-kubeless
+#
+# For documentation on kubeless itself:
+#    http://kubeless.io
+
+# Update the service name below with your own service name
+service: item-service
+
+# Please ensure the serverless-kubeless provider plugin is installed globally.
+# $ npm install -g serverless-kubeless
+#
+# ...before installing project dependencies to register this provider.
+# $ npm install
+
+provider:
+  name: kubeless
+  runtime: python3.6
+  environment:
+    MONGO-URL: "mongodb://db:27017"
+    SSL_DEBUG: "*"
+package:
+  exclude:
+    - venv/**
+    - node_modules/**
+    - .idea/**
+
+plugins:
+  - serverless-kubeless
+
+functions:
+  createitem:
+    handler: itemhandler.saveitem
+    events:
+      - http:
+          path: /saveitem
+          hostname: ${env:SERVER-HOST}
+
+  getitem:
+    handler: itemhandler.getitem
+    events:
+    - http:
+        path: /getitem
+        hostname: ${env:SERVER-HOST}
+
+  deleteitem:
+    handler: itemhandler.deleteitem
+    events:
+    - http:
+        path: /deleteitem
+        hostname: ${env:SERVER-HOST}

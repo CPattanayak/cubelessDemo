@@ -1,0 +1,71 @@
+{
+	"variables": [],
+	"info": {
+		"name": "item-collection",
+		"_postman_id": "69289b3e-cf4f-dcab-6f27-d4e6a0b4ec18",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost/saveitem",
+			"request": {
+				"url": "http://localhost/saveitem",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"itemName\":\"Veg Beriyani\",\n\t\"price\": 245.55,\n\t\"avalibility\": true,\n\t\"imageName\": \"aa.jpg\"\n}"
+				},
+				"description": "save item "
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/getitem",
+			"request": {
+				"url": "http://localhost/getitem",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"size\":10,\n\t\"page\":1,\n\t\"query\":\"{}\"\n}"
+				},
+				"description": "get item"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/deleteitem",
+			"request": {
+				"url": "http://localhost/deleteitem",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"itemName\": \"Veg Beriyani\"\n}"
+				},
+				"description": "delete item"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,84 @@
+{
+	"variables": [],
+	"info": {
+		"name": "customere-collection",
+		"_postman_id": "4e487256-4af1-654a-9c52-c4db3f57887a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost/savecustomer",
+			"request": {
+				"url": "localhost/savecustomer",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\":\"Chandan\",\n\t\"lastName\": \"Pattanayak\",\n\t\"email\": \"pattac@dell.com\",\n\t\"mobile\": 9880360583\n}"
+				},
+				"description": "save-customer"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/getcustomer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost/getcustomer",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"size\":10,\n\t\"page\":1,\n\t\"query\":\"{}\"\n}"
+				},
+				"description": "retrive customere"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/deletecustomer",
+			"request": {
+				"url": "localhost/deletecustomer",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"mobile\":9880360583\n}"
+				},
+				"description": "deleting customere"
+			},
+			"response": []
+		}
+	]
+}
