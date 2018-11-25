@@ -1,0 +1,38 @@
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2>Create new Item</h2>
+            <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label>Item Name</label>
+                    <input type="text" formControlName="itemName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.itemName.errors }" />
+                    <div *ngIf="submitted && f.itemName.errors" class="invalid-feedback">
+                        <div *ngIf="f.itemName.errors.required">Item Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Item Price</label>
+                  <input type="number" formControlName="price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.price.errors }" />
+                  <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                      <div *ngIf="f.price.errors.required">Item Price is required</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Item Image</label>
+                  <input type="text" formControlName="imageName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.imageName.errors }" />
+                  <div *ngIf="submitted && f.imageName.errors" class="invalid-feedback">
+                      <div *ngIf="f.imageName.errors.required">Item Image is required</div>
+                  </div>
+               </div>
+
+                <div class="form-group">
+                    <button class="btn btn-primary">Create Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+

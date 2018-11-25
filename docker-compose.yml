@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    build: ./ui-project
+    ports:
+      - "3000:80"
+
+    
+        

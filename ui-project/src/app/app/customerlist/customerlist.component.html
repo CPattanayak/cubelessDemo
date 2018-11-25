@@ -1,0 +1,27 @@
+<div class="container">
+  <table  class="table table-condensed table-hover table-striped">
+      <thead class="text-danger">
+          <tr>
+              <th><strong>Mobile Phone</strong></th>
+              <th><strong>Name</strong></th>
+              <th><strong>Email</strong></th>
+              <th><strong>Command</strong></th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cust of customerList">
+         <td>{{cust.mobile}}</td>
+         <td>{{cust.firstName}} {{cust.lastName}}</td>
+         <td>{{cust.email}}</td>
+         <td>
+          <button (click)="editCustomer(cust.mobile)" type="button" class="btn btn-xs btn-default">
+            <span class="fa fa-pencil"></span>
+          </button>
+          <button (click)="deleteCustomer(cust.mobile)" type="button" class="btn btn-xs btn-default">
+            <span class="fa fa-trash-o"></span>
+          </button>
+        </td>
+        </tr>
+  </table>
+  <ngb-pagination [collectionSize]="totalItems" [pageSize]="10" [(page)]="page" (pageChange)="loadPage($event)"></ngb-pagination>
+</div>

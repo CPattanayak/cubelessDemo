@@ -1,0 +1,13 @@
+<div class="card mb-4 box-shadow">
+  <div class="card-header bg-primary">
+     <img class="img-fluid rounded-circle w-75 mx-auto mt-3" [src]="imageUrl" alt="Card image">
+     <h4 class="my-0 font-weight-normal">{{selectedItem.itemName}}</h4>
+  </div>
+  <div class="card-body bg-dark">
+     <h1><b>{{selectedItem.price | currencyString:'Rs'}} </b><small class="text-muted">/ plate</small></h1>
+     <ul class="list-unstyled mt-3 mb-4">
+        <li>Minimum 10 order</li>
+     </ul>
+     <button type="button" (click)="emitPrice()" class="btn btn-lg btn-block btn-outline-info">Place Order</button>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2>Image uploader</h2>
+            <div class="form-group">
+              <label>import image</label>
+              <input type="file" name="photo" ng2FileSelect [uploader]="uploader"  class="form-control"  />
+              <button type="button" class="btn btn-success btn-s"
+                     (click)="uploader.uploadAll()"
+                     [disabled]="!uploader.getNotUploadedItems().length" >
+                      Upload an Image
+              </button>
+          </div>
+        </div>
+    </div>
+</div>
+
