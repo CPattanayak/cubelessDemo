@@ -8,7 +8,7 @@ custDetail = db["customer"]
 def savecustomer(event, context):
 
     jsonbody=event['data']
-    deletemap = {'mobile': jsonbody['mobile']}
+    deletemap = {'mobile': int(jsonbody['mobile'])}
     x = custDetail.delete_many(deletemap)
     print(x.deleted_count, " documents deleted.")
     print("Processing mongo json")
