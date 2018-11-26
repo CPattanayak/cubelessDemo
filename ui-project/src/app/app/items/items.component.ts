@@ -15,7 +15,7 @@ export class ItemsComponent implements OnInit {
   ngOnInit() {
     this.itemService.getItemListAdmin().subscribe(
       data => {
-         this.items = data['items'].filter( item => item);
+         this.items = data['rows'].filter( item => item);
       }
     );
   }
@@ -26,7 +26,7 @@ export class ItemsComponent implements OnInit {
       console.log(result);
       this.itemService.getItemListAdmin().subscribe(
         data => {
-           this.items = data['items'].filter( item => item);
+           this.items = data['rows'].filter( item => item);
         }
       );
     }).catch((error) => {

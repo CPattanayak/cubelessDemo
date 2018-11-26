@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Customer } from './customer.model';
+import { QueryModel } from './query.model';
 import { environment } from '../../environments/environment';
 
 const httpOptions = {
@@ -14,9 +15,14 @@ const httpOptions = {
 })
 export class CustomerService {
   private baseUrl = environment.baseUrl;
+  private queryModel: QueryModel;
+  private currentCustomer: Customer;
   constructor(private http: HttpClient) { }
   getUserList(id: any) {
-    return this.http.get(`${this.baseUrl}/list/${id}`);
+    this.queryModel = new QueryModel();
+    this.queryModel.size = 10;
+    this.queryModel.page = id;
+    return this.http.post<QueryModel>( `/getcustomer`, this.queryModel, httpOptions);
   }
   createUser(customer: Customer) {
 
@@ -24,7 +30,9 @@ export class CustomerService {
     return this.http.post<Customer>( `/savecustomer`, customer, httpOptions);
   }
   deleteUser(mobile: any) {
-    return this.http.delete(`${this.baseUrl}/delete/${mobile}`);
+    this.currentCustomer = new Customer();
+    this.currentCustomer.mobile = mobile;
+    return this.http.post(`/deletecustomer`, this.currentCustomer, httpOptions);
   }
   updateUser(mobile: any, customer: Customer) {
     return this.http.post<Customer>( `/savecustomer`, customer, httpOptions);
