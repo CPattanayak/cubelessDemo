@@ -38,7 +38,7 @@ export class ItemsComponent implements OnInit {
       ret => {
         this.itemService.getItemListAdmin().subscribe(
           data => {
-             this.items = data['items'].filter( item => item);
+             this.items = data['rows'].filter( item => item);
           }
         );
       }
